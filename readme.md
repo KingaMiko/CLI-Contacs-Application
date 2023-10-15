@@ -15,7 +15,9 @@
 
 Create a folder db in the root of the project. To store contacts, download and use the contacts.json file, putting it in the db folder. <br>
 
-<ul> At the root of the project, create a contacts.js file.
+At the root of the project, create a contacts.js file.
+
+<ul>
 <li>Make imports of modules fs and path to work with the file system</li>
 <li>Create a contactsPath variable and put the path to the contacts.json file in it. To compose a path, use the methods of the path module</li>
 <li>Add functions to work with a collection of contacts. In functions, use the fs module and its readFile() and writeFile() methods</li>
