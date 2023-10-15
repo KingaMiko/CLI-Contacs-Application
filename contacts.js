@@ -1,59 +1,57 @@
 const fs = require("fs").promises;
 const path = require("path");
-const contactsPath = path.join(__dirname, "./db/contacts.json");
-const { nanoid } = require("nanoid");
+const contacts = require("./contacts");
+const contactsPath = "./db/contacts.json";
+const { v4: uuidv4 } = require("uuid");
+
+async function loadFile(path) {
+  let file;
+  try {
+    file = await fs.readFile(path);
+  } catch (err) {
+    console.log(err.message);
+  }
+  return JSON.parse(file.toString());
+}
+
+async function saveFile(path, data) {
+  fs.writeFile(path, JSON.stringify(data))
+    .then(() => console.log("File saved"))
+    .catch((err) => console.log(err.message));
+}
 
 async function listContacts() {
-  try {
-    const data = await fs.readFile(contactsPath);
-    const contacts = JSON.parse(data);
-    return contacts;
-  } catch (error) {
-    console.error("Error reading contacts:", error);
-    throw error;
-  }
+  const data = await loadFile(contactsPath);
+  console.table(data);
 }
 
 async function getContactById(contactId) {
-  try {
-    const contacts = await listContacts();
-    const contact = contacts.find((c) => c.id === contactId);
-    return contact;
-  } catch (error) {
-    console.error("Error getting contact by ID:", error);
-    throw error;
-  }
+  const data = await loadFile(contactsPath);
+  const filteredData = data.filter((element) => element.id === contactId);
+  console.table(filteredData);
 }
 
 async function removeContact(contactId) {
-  try {
-    const contacts = await listContacts();
-    const updatetdContacts = contacts.filter((c) => c.id !== contactId);
-    return updatetdContacts;
-  } catch (error) {
-    console.error("Error removing contact:", error);
-    throw error;
+  const data = await loadFile(contactsPath);
+  const index = data.findIndex((element) => element.id === contactId);
+  if (index === -1) {
+    console.log("Contact not found");
+  } else {
+    data.splice(index, 1);
+    console.log("Contact removed");
+    saveFile(contactsPath, data);
   }
 }
 
-async function addContact(name, email, phone) {
-  try {
-    const contacts = await listContacts();
-    const newContact = {
-      id: nanoid(),
-      name,
-      email,
-      phone,
-    };
-    contacts.push(newContact);
-    await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
-  } catch (error) {
-    console.error("Error adding contact:", error);
-    throw error;
-  }
+async function addContact({ name, email, phone }) {
+  const data = await loadFile(contactsPath);
+  data.push({ id: uuidv4(), name: name, email: email, phone: phone });
+  console.log("Contact added");
+  saveFile(contactsPath, data);
 }
 
 module.exports = {
+  contactsPath,
   listContacts,
   getContactById,
   removeContact,

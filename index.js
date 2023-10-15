@@ -1,9 +1,42 @@
-const fs = require("fs").promises;
-const path = require("path");
+const contacts = require("./contacts");
+const { Command } = require("commander");
+const program = new Command();
+program
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
 
-const contactsPath = path.join(__dirname, "./db/contacts.json");
+program.parse(process.argv);
 
-console.log("path.join() : ", path.join(__dirname, "./db/contacts.json"));
-// outputs .
-console.log("path.resolve() : ", path.resolve(__dirname, "./db/contacts.json"));
-// outputs current directory or equalent to __dirname of the node process
+const argv = program.opts();
+
+function invokeAction({ action, id, name, email, phone }) {
+  switch (action) {
+    case "list":
+      contacts.listContacts();
+      break;
+
+    case "get":
+      contacts.getContactById(id);
+      break;
+
+    case "add":
+      contacts.addContact({
+        name: name,
+        email: email,
+        phone: phone,
+      });
+      break;
+
+    case "remove":
+      contacts.removeContact(id);
+      break;
+
+    default:
+      console.warn("\x1B[31m Unknown action type!");
+  }
+}
+
+invokeAction(argv);
