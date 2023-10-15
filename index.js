@@ -1,7 +1,20 @@
-const contacts = require("./contacts");
 const { Command } = require("commander");
+const contacts = require("./contacts");
+
 const program = new Command();
+
 program
+  .addHelpText(
+    "after",
+    `
+    Available Commands:
+    -------------------
+    list         List all contacts
+    get <id>     Get a contact by ID
+    add <name> <email> <phone>   Add a new contact
+    remove <id>  Remove a contact by ID
+    `
+  )
   .option("-a, --action <type>", "choose action")
   .option("-i, --id <type>", "user id")
   .option("-n, --name <type>", "user name")
@@ -23,11 +36,7 @@ function invokeAction({ action, id, name, email, phone }) {
       break;
 
     case "add":
-      contacts.addContact({
-        name: name,
-        email: email,
-        phone: phone,
-      });
+      contacts.addContact(name, email, phone);
       break;
 
     case "remove":
