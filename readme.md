@@ -1,5 +1,9 @@
 # Node Homework
 
+https://monosnap.com/file/kOKp3chMKoxcGTpCx92DKggMYg8LwW
+
+<a href="https://ibb.co/ZG9xV2q"><img src="https://i.ibb.co/n6pjbPx/Zrzut-ekranu-2023-10-16-o-10-14-32.png" alt="Zrzut-ekranu-2023-10-16-o-10-14-32"/></a>
+
 ## Step 1
 
 <ul>

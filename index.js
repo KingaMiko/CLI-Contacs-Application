@@ -15,17 +15,22 @@ program
     remove <id>  Remove a contact by ID
     `
   )
-  .option("-a, --action <type>", "choose action")
-  .option("-i, --id <type>", "user id")
-  .option("-n, --name <type>", "user name")
-  .option("-e, --email <type>", "user email")
-  .option("-p, --phone <type>", "user phone");
+  .option("-a, --action <type>", "Choose action: list, get, add, or remove")
+  .option("-i, --id <type>", "User ID")
+  .option("-n, --name <type>", "User name")
+  .option("-e, --email <type>", "User email")
+  .option("-p, --phone <type>", "User phone");
 
 program.parse(process.argv);
 
 const argv = program.opts();
 
 function invokeAction({ action, id, name, email, phone }) {
+  if (!action) {
+    console.log(program.helpInformation());
+    return;
+  }
+
   switch (action) {
     case "list":
       contacts.listContacts();

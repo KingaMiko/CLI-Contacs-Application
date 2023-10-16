@@ -33,10 +33,10 @@ async function getContactById(contactId) {
     if (contact) {
       console.table([
         {
-          ID: contact.id,
-          Name: contact.name,
-          Email: contact.email,
-          Phone: contact.phone,
+          id: contact.id,
+          name: contact.name,
+          email: contact.email,
+          phone: contact.phone,
         },
       ]);
     } else {
@@ -80,7 +80,8 @@ async function removeContact(contactId) {
 
 async function addContact(name, email, phone) {
   try {
-    const contacts = await listContacts();
+    const data = await fs.readFile(contactsPath);
+    const contacts = JSON.parse(data);
     const newContact = {
       id: uuidv4(),
       name,
