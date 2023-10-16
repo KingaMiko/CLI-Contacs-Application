@@ -1,5 +1,5 @@
-const { Command } = require("commander");
-const contacts = require("./contacts");
+import { Command } from "commander";
+import * as contacts from "./contacts.js";
 
 const program = new Command();
 

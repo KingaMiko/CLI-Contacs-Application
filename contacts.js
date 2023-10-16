@@ -1,8 +1,8 @@
-const fs = require("fs").promises;
-const readline = require("readline");
-const path = require("path");
-const contactsPath = path.join(__dirname, "./db/contacts.json");
-const { v4: uuidv4 } = require("uuid");
+import { promises as fs } from "fs";
+import readline from "readline";
+import path from "path";
+const contactsPath = path.join(process.cwd(), "./db/contacts.json");
+import { v4 as uuidv4 } from "uuid";
 
 async function saveContact(path, data) {
   try {
@@ -112,9 +112,4 @@ async function addContact(name, email, phone) {
   }
 }
 
-module.exports = {
-  listContacts,
-  getContactById,
-  removeContact,
-  addContact,
-};
+export { listContacts, getContactById, removeContact, addContact };
