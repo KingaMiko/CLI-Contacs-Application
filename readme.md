@@ -15,14 +15,31 @@ Before you start using this application, you need to follow these steps to set i
 
 You can perform various actions using this CLI application. Here are the available commands and how to use them:
 
-<ul>
-<li> List All Contacts: To view a list of all your contacts, use the following command: <b>npm run start -- -a list</b></li>
-<li>Get Contact by ID: Retrieve contact details by providing the contact's ID: <b>npm run start -- --action get --id [contact-id] </b> <br>Replace [contact-id] with the actual ID of the contact you want to view.</li>
-<li> Add a New Contact: To add a new contact, use the following command: <b>npm run start -- --action add --name [name>]--email [email] --phone [phone]</b></li>
-<li> Remove a Contact by ID: Remove a contact from your list by specifying its ID: <b>npm run start -- --action remove --id [contact-id]</b> Replace [name], [email], and [phone] with the contact's details.
-
-</li>
-</ul>
+    <ul>
+        <li>
+            <strong>List All Contacts:</strong>
+            To view a list of all your contacts, use the following command:
+            <pre>npm run start -- -a list</pre>
+        </li>
+        <li>
+            <strong>Get Contact by ID:</strong>
+            Retrieve contact details by providing the contact's ID:
+            <pre>npm run start -- --action get --id [contact-id]</pre>
+            Replace <code>[contact-id]</code> with the actual ID of the contact you want to view.
+        </li>
+        <li>
+            <strong>Add a New Contact:</strong>
+            To add a new contact, use the following command:
+            <pre>npm run start -- --action add --name [name] --email [email] --phone [phone]</pre>
+            Replace <code>[name]</code>, <code>[email]</code>, and <code>[phone]</code> with the contact's details.
+        </li>
+        <li>
+            <strong>Remove a Contact by ID:</strong>
+            Remove a contact from your list by specifying its ID:
+            <pre>npm run start -- --action remove --id [contact-id]</pre>
+            Replace <code>[contact-id]</code> with the actual ID of the contact you want to remove.
+        </li>
+    </ul>
 
 ## Screenshots
 
