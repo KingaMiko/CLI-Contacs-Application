@@ -1,5 +1,32 @@
-# Node Homework
+# Node Homework - CLI Contacs Application
 
+This Command Line Interface (CLI) application allows you to manage your contacts. You can list all your contacts, add new ones, get contact details by ID, and remove contacts. It's a convenient way to keep track of your contacts right from your terminal.
+
+## Installation
+
+Before you start using this application, you need to follow these steps to set it up:
+
+<ol>
+<li>Clone this repository to your local machine: git clone [repository-url]<li>
+<li>Install the required dependencies: npm install</li>
+</ol>
+
+## Usage
+
+You can perform various actions using this CLI application. Here are the available commands and how to use them:
+
+<ul>
+<li> List All Contacts: To view a list of all your contacts, use the following command: <b>npm run start -- -a list</b></li>
+<li>Get Contact by ID: Retrieve contact details by providing the contact's ID: <b>npm run start -- --action get --id [contact-id] </b> <br>Replace [contact-id] with the actual ID of the contact you want to view.</li>
+<li> Add a New Contact: To add a new contact, use the following command: <b>npm run start -- --action add --name [name>]--email [email] --phone [phone]</b></li>
+<li> Remove a Contact by ID: Remove a contact from your list by specifying its ID: <b>npm run start -- --action remove --id [contact-id]</b> Replace [name], [email], and [phone] with the contact's details.
+
+</li>
+</ul>
+
+## Screenshots
+
+This screenshot showcases the CLI Contacts Application with various commands and their outputs.
 https://monosnap.com/file/kOKp3chMKoxcGTpCx92DKggMYg8LwW
 
 <a href="https://ibb.co/ZG9xV2q"><img src="https://i.ibb.co/ZG9xV2q/Zrzut-ekranu-2023-10-16-o-10-14-32.png" alt="Zrzut-ekranu-2023-10-16-o-10-14-32" border="0" /></a>
