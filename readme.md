@@ -1,4 +1,4 @@
-# Node Homework - CLI Contacs Application
+# CLI Contacs Application
 
 This Command Line Interface (CLI) application allows you to manage your contacts. You can list all your contacts, add new ones, get contact details by ID, and remove contacts. It's a convenient way to keep track of your contacts right from your terminal.
 
